@@ -18,18 +18,8 @@ import org.jboss.shrinkwrap.api.spec.WebArchive;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
-@RunWith(Arquillian.class)
-public class MemberRegistrationTest {
-   @Deployment
-   public static Archive<?> createTestArchive() {
-      return ShrinkWrap.create(WebArchive.class, "test.war")
-            .addClasses(Person.class, MemberRegistration.class, Resources.class)
-            .addAsResource("META-INF/test-persistence.xml", "META-INF/persistence.xml")
-            .addAsWebInfResource(EmptyAsset.INSTANCE, "beans.xml")
-            // Deploy our test datasource
-            .addAsWebInfResource("test-ds.xml", "test-ds.xml");
-   }
-
+@RunWith(WeldJUnit4Runner.class)
+public class PersonRegistrationTest {
    @Inject
    MemberRegistration memberRegistration;
 
@@ -38,7 +28,7 @@ public class MemberRegistrationTest {
 
    @Test
    public void testRegister() throws Exception {
-       Person newMember = new Person();
+      Person newMember = new Person();
       newMember.setName("Jane Doe");
       newMember.setEmail("jane@mailinator.com");
       newMember.setPhoneNumber("2125551234");
