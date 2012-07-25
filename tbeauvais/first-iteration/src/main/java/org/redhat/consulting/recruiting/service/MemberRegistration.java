@@ -1,6 +1,6 @@
 package org.redhat.consulting.recruiting.service;
 
-import org.redhat.consulting.recruiting.model.Member;
+import org.redhat.consulting.recruiting.model.Person;
 
 import javax.ejb.Stateless;
 import javax.enterprise.event.Event;
@@ -19,9 +19,9 @@ public class MemberRegistration {
    private EntityManager em;
 
    @Inject
-   private Event<Member> memberEventSrc;
+   private Event<Person> memberEventSrc;
 
-   public void register(Member member) throws Exception {
+   public void register(Person member) throws Exception {
       log.info("Registering " + member.getName());
       em.persist(member);
       memberEventSrc.fire(member);

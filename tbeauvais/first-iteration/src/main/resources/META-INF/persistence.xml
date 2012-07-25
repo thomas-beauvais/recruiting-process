@@ -11,15 +11,15 @@
 		<!-- The datasource is deployed as WEB-INF/kitchensinkrf-quickstart-ds.xml, you
 		can find it in the source at src/main/webapp/WEB-INF/kitchensinkrf-quickstart-ds.xml -->
 	    <!-- Eventually we will want to use a JTA data-source -->
-	    <!-- <jta-data-source>java:jboss/datasources/KitchensinkrfQuickstartDS</jta-data-source> -->
+	     <jta-data-source>java:jboss/datasources/RecruitingProcess</jta-data-source>
 	    
 		<!-- But for now, we can use this for testing and first round development -->	    
 	    <properties>
 			<property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQL82Dialect"/>
-			<property name="hibernate.connection.driver_class" value="org.postgresql.Driver"/>
-			<property name="hibernate.connection.username" value="postgres"/>
-			<property name="hibernate.connection.password" value="postgres"/>
-			<property name="hibernate.connection.url" value="jdbc:postgresql://localhost/recruitingprocess"/>
+			<!--<property name="hibernate.connection.driver_class" value="org.postgresql.Driver"/>-->
+			<!--<property name="hibernate.connection.username" value="postgres"/>-->
+			<!--<property name="hibernate.connection.password" value="postgres"/>-->
+			<!--<property name="hibernate.connection.url" value="jdbc:postgresql://localhost/recruitingprocess"/>-->
 			<property name="hibernate.max_fetch_depth" value="3"/>
 			
 			<!--<property name="hibernate.connection.autocommit" value="false"/>-->

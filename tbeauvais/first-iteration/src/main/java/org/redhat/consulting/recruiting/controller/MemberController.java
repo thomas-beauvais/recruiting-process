@@ -9,7 +9,7 @@ import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.inject.Named;
 
-import org.redhat.consulting.recruiting.model.Member;
+import org.redhat.consulting.recruiting.model.Person;
 import org.redhat.consulting.recruiting.service.MemberRegistration;
 import org.richfaces.cdi.push.Push;
 
@@ -31,22 +31,22 @@ public class MemberController {
    @Inject
    @Push(topic = PUSH_CDI_TOPIC) Event<String> pushEvent;
 
-   private Member newMember;
-   private Member member;
+   private Person newMember;
+   private Person member;
 
    @Produces
    @Named
-   public Member getNewMember() {
+   public Person getNewMember() {
       return newMember;
    }
 
    @Produces
    @Named
-   public Member getMember() {
+   public Person getMember() {
       return member;
    }
 
-   public void setMember(Member member) {
+   public void setMember(Person member) {
       this.member = member;
    }
 
@@ -59,6 +59,6 @@ public class MemberController {
 
    @PostConstruct
    public void initNewMember() {
-      newMember = new Member();
+      newMember = new Person();
    }
 }

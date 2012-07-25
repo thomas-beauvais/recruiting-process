@@ -161,6 +161,12 @@
             <scope>provided</scope>
         </dependency>
 
+        <dependency>
+            <groupId>postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+            <version>9.1-901.jdbc4</version>
+        </dependency>
+
         <!-- The rewrite library allows us to do url rewriting - used here for rewriting mobile devices to mobile specific views -->
         <dependency>
             <groupId>org.ocpsoft.rewrite</groupId>

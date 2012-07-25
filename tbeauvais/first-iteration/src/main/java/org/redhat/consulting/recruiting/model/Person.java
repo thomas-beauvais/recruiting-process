@@ -26,7 +26,7 @@ public class Person implements Serializable {
 
    @Id
    @GeneratedValue
-   private Long id;
+   private long id;
 
    @NotNull
    @Size(min = 1, max = 25)
@@ -44,11 +44,11 @@ public class Person implements Serializable {
    @Column(name = "phone_number")
    private String phoneNumber;
 
-   public Long getId() {
+   public long getId() {
       return id;
    }
 
-   public void setId(Long id) {
+   public void setId(long id) {
       this.id = id;
    }
 
