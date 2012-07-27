@@ -49,6 +49,21 @@
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
+            <dependency>
+            	<groupId>org.jboss.bom</groupId>
+            	<artifactId>jboss-javaee-6.0-with-hibernate</artifactId>
+            	<version>1.0.0.M7</version>
+            	<type>pom</type>
+            	<scope>import</scope>
+            </dependency>
+            <dependency>
+            	<groupId>org.jboss.bom</groupId>
+            	<artifactId>jboss-javaee-6.0-with-hibernate</artifactId>
+            	<version>1.0.0.M7</version>
+            	<type>pom</type>
+            	<scope>import</scope>
+            	<optional>false</optional>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 
@@ -186,6 +201,12 @@
             <artifactId>arquillian-junit-container</artifactId>
             <scope>test</scope>
         </dependency>
+        
+		<dependency>
+			<groupId>org.jboss.as</groupId>
+			<artifactId>jboss-as-arquillian-container-managed</artifactId>
+			<scope>test</scope>
+		</dependency>
 
         <dependency>
             <groupId>org.jboss.arquillian.protocol</groupId>
@@ -193,6 +214,62 @@
             <scope>test</scope>
         </dependency>
 
+        <dependency>
+        	<groupId>org.hibernate</groupId>
+        	<artifactId>hibernate-core</artifactId>
+        	<scope>provided</scope>
+        	<exclusions>
+        		<exclusion>
+        			<artifactId>xml-apis</artifactId>
+        			<groupId>xml-apis</groupId>
+        		</exclusion>
+        	</exclusions>
+        </dependency>
+        <dependency>
+        	<groupId>org.hibernate</groupId>
+        	<artifactId>hibernate-entitymanager</artifactId>
+        	<scope>provided</scope>
+        </dependency>
+        <dependency>
+        	<groupId>org.hibernate</groupId>
+        	<artifactId>hibernate-validator</artifactId>
+        	<scope>provided</scope>
+        </dependency>
+        <dependency>
+        	<groupId>org.hibernate</groupId>
+        	<artifactId>hibernate-search</artifactId>
+        	<version>4.1.0.Final</version>
+        </dependency>
+        <dependency>
+        	<groupId>org.hibernate</groupId>
+        	<artifactId>hibernate-core</artifactId>
+        	<scope>provided</scope>
+        	<exclusions>
+        		<exclusion>
+        			<artifactId>xml-apis</artifactId>
+        			<groupId>xml-apis</groupId>
+        		</exclusion>
+        	</exclusions>
+        	<optional>false</optional>
+        </dependency>
+        <dependency>
+        	<groupId>org.hibernate</groupId>
+        	<artifactId>hibernate-entitymanager</artifactId>
+        	<scope>provided</scope>
+        	<optional>false</optional>
+        </dependency>
+        <dependency>
+        	<groupId>org.hibernate</groupId>
+        	<artifactId>hibernate-validator</artifactId>
+        	<scope>provided</scope>
+        	<optional>false</optional>
+        </dependency>
+        <dependency>
+        	<groupId>org.hibernate</groupId>
+        	<artifactId>hibernate-search</artifactId>
+        	<version>4.1.0.Final</version>
+        	<optional>false</optional>
+        </dependency>
     </dependencies>
 
     <build>
