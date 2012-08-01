@@ -1,0 +1,9 @@
+1) DATASOURCE SETUP
+
+1.a) Overview
+
+Since this project uses JPA the persistence.xml can point to various JDBC sources using a JNDI name.  This allows JBoss to maintain 
+the resources transparent to the application.  To switch between the various sources available for this project, please look at 
+the persistence.xml and test-persistence.xml for more details.
+
+1.b) 
