@@ -1,9 +1,52 @@
-1) DATASOURCE SETUP
-
-1.a) Overview
+** DATASOURCE SETUP **
 
 Since this project uses JPA the persistence.xml can point to various JDBC sources using a JNDI name.  This allows JBoss to maintain 
 the resources transparent to the application.  To switch between the various sources available for this project, please look at 
 the persistence.xml and test-persistence.xml for more details.
 
-1.b) 
+1)  PostgreSQL Configuration in JBoss
+ 
+    Take the ZIP that is located at "src/main/resources/postgres-dsconfig.zip" and unzip it into the EAP home: $JBOSS_HOME\modules
+
+	NOTE:  You will have to be careful about updating the tree if the 'org' folder already exists.
+
+    Index of the ZIP..
+	
+    org/postgresql/main/postgresql-9.1-901.jdbc4.jar
+    org/postgresql/main/module.xml
+
+    The context of module.xml
+    <?xml version="1.0" encoding="UTF-8"?>
+    <module xmlns="urn:jboss:module:1.0" name="org.postgresql">
+   		<resources>
+            <resource-root path="postgresql-9.1-901.jdbc4.jar"/>
+        </resources>
+        <dependencies>
+            <module name="javax.api"/>
+            <module name="javax.transaction.api"/>
+        </dependencies> 
+    </module>
+
+2)  Changes to the server configuration will need to be made.  These are located in the
+    EAP directory $JBOSS_HOME\<domain | standalone>\configration\<domain.xml | standalone*.xml>
+    For instance, in our project developers tend to use the standalone configuration which is merely the standalone.xml.
+
+    Changes that need to be made..
+
+    Add the data source to the <datasources> node under the <subsystem> node        
+	<datasource jndi-name="java:jboss/datasources/RecruitingProcess" pool-name="RecruitingProcess" 
+         enabled="true" use-java-context="true">
+	    <connection-url>jdbc:postgresql://localhost/recruiting-process</connection-url>
+        <driver>postgres-driver</driver>
+        <security>
+            <user-name>postgres</user-name>
+            <password>postgres</password>
+        </security>
+    </datasource>
+
+    Add the data source to the <drivers> node under the <subsystem> node
+	<driver name="postgres-driver" module="org.postgresql">
+        <xa-datasource-class>org.postgresql.xa.PGXADataSource</xa-datasource-class>
+   </driver>
+   
+3) Simply restart the JBoss server and navigate to http://localhost:8080/console in order to see the new datasource.
