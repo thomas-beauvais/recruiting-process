@@ -8,7 +8,8 @@
 	  <!-- The Postgres Datasource - Look for the configuration details for JBoss in the README file -->
       <!-- <jta-data-source>java:jboss/datasources/RecruitingProcess</jta-data-source> -->
 
-      <jta-data-source>java:jboss/datasources/SLDFJSLKDFJ</jta-data-source> 
+	  <!-- TODO:  Figure out where the binding/creating for the data source 'KitchensinkrfQuickstartDS' occurs -->
+      <jta-data-source>java:jboss/datasources/KitchensinkrfQuickstartDS</jta-data-source> 
 
       <properties>
          <!-- Properties for Hibernate -->
