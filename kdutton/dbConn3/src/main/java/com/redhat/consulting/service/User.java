@@ -5,6 +5,12 @@ package com.redhat.consulting.service;
 	import javax.servlet.http.*; 
 	
 	
+/**
+ * Documentation is awesome and you should have some..
+ * 
+ * @author tbeauvais
+ *
+ */
 public class User extends HttpServlet {
 	private static final long serialVersionUID = 1L; 
 
